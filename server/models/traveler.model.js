@@ -11,20 +11,20 @@ const TravelerSchema = new mongoose.Schema({
         minlength:[2, "Traveler's last name must be at least 2 characters long!"]
 
     },
-    // imageUrl: {
-    //     type:String,
-    //     required:[true, "Must Have an image!"]
-    // }, 
+    imageUrl: {
+        type:String,
+        required:[true, "Must Have an image!"]
+    }, 
     screenName: {
         type:String,
         required:[true, "Must have a screen name"],
         minlength: [3, "your screen name must be at least 3 characters long!"]
     },
-    // password: {
-    //     type:String,
-    //     required:[true, "Must enter a password"],
-    //     minlingth:[6, "Must be at least 6 characters long"]
-    // }
+    password: {
+        type:String,
+        required:[true, "Must enter a password"],
+        minlingth:[6, "Must be at least 6 characters long"]
+    }
 
 },
 {timestamps:true}

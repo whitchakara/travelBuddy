@@ -7,6 +7,8 @@ app.use(cors({
 }));
 require("./config/mongoose.config");
 require("./routes/traveler.routes")(app);
+require("./routes/trips.routes")(app); 
+//require("/routes")(app);
 const port = 8000;
     
 app.listen(port, () => console.log(`Listening on port: ${port}`) ); 
