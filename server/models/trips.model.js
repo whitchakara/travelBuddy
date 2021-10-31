@@ -5,12 +5,17 @@ const TripSchema = new mongoose.Schema({
         required:[true, "Must have a screen name"],
         minlength: [3, "your screen name must be at least 3 characters long!"]
     },
+    travelerId: {
+        type: mongoose.Types.ObjectId,
+        ref:"Traveler"
+    },
+    
     locationImg: {
         type:String,
-        //required:[true, "Must Have an image!"]
+        required:[true, "Must Have an image!"]
     },
     duration: {
-        type:Number,
+        type:String,
         required:[true],
     },
     itenerary: {
@@ -18,8 +23,6 @@ const TripSchema = new mongoose.Schema({
         required:[true, "Must have an itenerary"],
         minlength:[100, "Your itenerary must be at least 100 characters long."]
     }
-
-    
 
 },
 {timestamps:true}
