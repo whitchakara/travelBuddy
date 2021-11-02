@@ -18,7 +18,7 @@ const TripSchema = new mongoose.Schema({
         type:String,
         required:[true],
     },
-    itenerary: {
+    itinerary: {
         type:String,
         required:[true, "Must have an itenerary"],
         minlength:[100, "Your itenerary must be at least 100 characters long."]
