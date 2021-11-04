@@ -26,16 +26,12 @@ const EditTraveler = (props)=> {
 
     return(
         <div>
-                {/* <h1>{updatingPirate.pirateName}</h1>
-                <p>Position:{updatingPirate.crewPosition}</p>
-                <p>Treasures:{updatingPirate.treasureChests}</p>
-                <p>Peg Leg:{updatingPirate.hasPegLeg ? <p>Yes</p> : <p>No</p>}</p>
-                <p>Eye Patch:{updatingPirate.hasEyePatch ? <p>Yes</p> : <p>No</p>}</p>
-                <p>Hook Hand:{updatingPirate.hasHookHand ? <p>Yes</p> : <p>No</p>}</p>
-                <p>{updatingPirate.imageUrl && (
-                    <img src={updatingPirate.imageUrl} alt="" />
+            
+            <h1>{updatingTraveler.screenName}</h1>
+            <p>{updatingTraveler.imageUrl && (
+                    <img src={updatingTraveler.imageUrl} alt="" />
                     )}</p>
-                <p>{updatingPirate.catchPhrase}</p> */}
+            
 
         </div>
     )

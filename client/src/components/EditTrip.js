@@ -26,16 +26,16 @@ const EditTrip = (props)=> {
 
     return(
         <div>
-                {/* <h1>{updatingPirate.pirateName}</h1>
-                <p>Position:{updatingPirate.crewPosition}</p>
-                <p>Treasures:{updatingPirate.treasureChests}</p>
+                <h1>{updatingTrip.location}</h1>
+                <p>{updatingTrip.duration}</p>
+                {/* <p>Treasures:{updatingPirate.treasureChests}</p>
                 <p>Peg Leg:{updatingPirate.hasPegLeg ? <p>Yes</p> : <p>No</p>}</p>
                 <p>Eye Patch:{updatingPirate.hasEyePatch ? <p>Yes</p> : <p>No</p>}</p>
-                <p>Hook Hand:{updatingPirate.hasHookHand ? <p>Yes</p> : <p>No</p>}</p>
-                <p>{updatingPirate.imageUrl && (
-                    <img src={updatingPirate.imageUrl} alt="" />
+                <p>Hook Hand:{updatingPirate.hasHookHand ? <p>Yes</p> : <p>No</p>}</p> */}
+                <p>{updatingTrip.imageUrl && (
+                    <img src={updatingTrip.imageUrl} alt="" />
                     )}</p>
-                <p>{updatingPirate.catchPhrase}</p> */}
+                {/* <p>{updatingTrip.catchPhrase}</p>  */}
 
         </div>
     )

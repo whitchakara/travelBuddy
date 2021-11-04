@@ -70,7 +70,7 @@ const AddTraveler = ()=> {
                     <label>Password</label>
                     <input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
                 </div>
-
+                <button>Create an account</button>
             </form>
             
         </div>
