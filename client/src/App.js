@@ -12,10 +12,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <AddTraveler path="/traveler"/>
-        <AddTrip path="/tip/new"/>
-        <EditTraveler path="/traveler/:id"/>
-        <EditTrip path="/trip/:id"/>
+        <AddTraveler path="/traveler/add"/>
+        <AddTrip path="/trip/add"/>
+        <EditTraveler path="edit/traveler/:id"/>
+        <EditTrip path="edit/trip/:id"/>
         <Error path="/errors"/>
       </Router>
       

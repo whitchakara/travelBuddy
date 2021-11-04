@@ -6,21 +6,21 @@ import axios from 'axios';
 
 
 const AddTraveler = ()=> {
-    
-    
+    const[firstName, setFirstName] = useState("");
+    const[lastName, setLastName] = useState("");
+    const[imageUrl, setImageUrl] = useState("");
+    const[screenName, setScreenName] = useState("");
+    const[password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
     
-    const onChangeHandler = (e)=> {
-        // let newStateObject = {...newPirate};
-        // newStateObject[e.target.name] = e.target.value 
-        // setNewPirate(newStateObject);
-
-
-    }
     const newSubmitHandler = (e)=> {
         e.preventDefault();
         const newTraveler = {
-            
+            firstName,
+            lastName,
+            imageUrl,
+            screenName,
+            password,
         };
         axios.post('http://localhost:8000/api/travelers/',
         newTraveler
@@ -48,7 +48,30 @@ const AddTraveler = ()=> {
 
     return(
         <div>
-            
+            <form onSubmit = {newSubmitHandler}>
+            {errors.map((err,index)=> <p key={index}>{err}</p>)}
+                <div>
+                    <label>First Name</label>
+                    <input onChange={(e) => setFirstName(e.target.value)} name="firstName" value={firstName}/>
+                </div>
+                <div>
+                    <label>Last Name</label>
+                    <input onChange={(e) => setLastName(e.target.value)} name="lastName" value={lastName}/>
+                </div>
+                <div>
+                    <label>Upload a Picture</label>
+                    <input onChange={(e) => setImageUrl(e.target.value)} name="imageUrl" value={imageUrl}/>
+                </div>
+                <div>
+                    <label>Screen Name</label>
+                    <input onChange={(e) => setScreenName(e.target.value)} name="screenName" value={screenName}/>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
+                </div>
+
+            </form>
             
         </div>
     )
