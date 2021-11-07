@@ -6,13 +6,13 @@ import Header from "./Header";
 
 const OneTrip = (props)=> {
     const {id} = props;
-    const [oneTrip, setOneTrip] = useState({});
+    const [tripInfo, setTripInfo] = useState({});
     //const [errors, setErrors] = useState({});
     useEffect(()=> {
         axios.get(`http://localhost:8000/api/trips/${id}`)
         .then((res)=> {
             console.log(res.data);
-            setOneTrip(res.data);
+            setTripInfo(res.data);
         })
         .catch((err)=> {
             console.log(err);
@@ -46,7 +46,7 @@ const OneTrip = (props)=> {
 
     return(
         <div>
-            <Header link={'/'}linkText="Dashboard"  subText="" />
+            <Header link={'/dashboard'}linkText="Dashboard"  subText="" />
             {/* <form onSubmit = {updateSubmitHandler}>
                 <label>Name</label>
                 <input onChange={onChangeHandler} name="authorName" value={updatingAuthor.authorName}/>
@@ -58,7 +58,12 @@ const OneTrip = (props)=> {
                 <button>Submit</button>
                 <button onClick = {(e)=> navigate("/")}>Cancel</button>
             </form> */}
-            <p></p>
+            <h2>{tripInfo.location}</h2>
+            <p>{tripInfo.locationImg && (
+                    <img src={tripInfo.locationImg} alt="" />
+                    )}</p>
+            <p>{tripInfo.duration}</p>
+            <p>{tripInfo.itinerary}</p>
         </div>
     )
 }

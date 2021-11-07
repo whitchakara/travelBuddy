@@ -8,6 +8,8 @@ import EditTraveler from './components/EditTraveler';
 import EditTrip from './components/EditTrip';
 import Error from './components/Errors';
 import AllTrips from './components/AllTrips'
+import OneTrip from './components/OneTrip';
+import OneTraveler from './components/OneTraveler'
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <AddTraveler path="/"/>
         <AllTrips path="/dashboard"/>
         <AddTrip path="/trip/add"/>
+        <OneTrip path="/trip/:id"/>
+        <OneTraveler path="/traveler/:id"/>
         <EditTrip path="edit/trip/:id"/>
         <EditTraveler path="edit/traveler/:id"/>
         <Error path="/errors"/>
