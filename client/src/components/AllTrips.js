@@ -49,7 +49,7 @@ const AllTrips = (props)=> {
                                 <h2>{trip.location}</h2>
                                 <button style={{backgroundColor:"blue", color:"white"}} onClick ={(e)=>{navigate(`/trip/${trip._id}`)}}>View</button>
                                 <button style={{backgroundColor:"red", color:"white"}} onClick={(e)=> deleteHandler(trip._id)}>delete</button>
-                                <button style={{backgroundColor:"red", color:"white"}} onClick={(e)=> {navigate('/edit/trip/{$trip._id}')}}>Edit</button>
+                                <button style={{backgroundColor:"red", color:"white"}} onClick={(e)=> {navigate(`/edit/trip/${trip._id}`)}}>Edit</button>
                             </ul>
                         ))
                         :null

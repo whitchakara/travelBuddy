@@ -28,7 +28,7 @@ const AddTrip = ()=> {
         )
         .then((res)=> {
             console.log(res.data);
-            navigate('/');
+            navigate('/dashboard');
         })
         .catch((err)=> {
             const errorResponse = err.response.data.errors;

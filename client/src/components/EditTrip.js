@@ -7,36 +7,58 @@ import { navigate } from '@reach/router';
 const EditTrip = (props)=> {
     const {id} = props;
     const [updatingTrip, setUpdatingTrip] = useState({});
+    //const [loaded,setLoaded]=useState("false")
     //const [errors, setErrors] = useState({});
     useEffect(()=> {
         axios.get(`http://localhost:8000/api/trips/${id}`)
         .then((res)=> {
             console.log(res.data);
             setUpdatingTrip(res.data);
+            //setLoaded("true")
         })
         .catch((err)=> {
             console.log(err);
-            navigate('/error')
+            navigate('/errors')
 
         })
 
     },[id])
+    const onChangeHandler = (e)=> {
+        let newStateObject = {...updatingTrip};
+        newStateObject[e.target.name] = e.target.value 
+        setUpdatingTrip(newStateObject);
+
+    }
+    const updateSubmitHandler = (e)=> {
+        e.preventDefault();
+        axios.put(`http://localhost:8000/api/trips/${id}`,
+        updatingTrip,
+        )
+        .then((res)=> {
+            console.log(res.data);
+            navigate('/dashboard');
+        })
+        .catch((err)=> {
+            console.log(err);
+            // setErrors(err.response.data.setErrors)
+        })
+    }
 
 
 
     return(
         <div>
-                <h1>{updatingTrip.location}</h1>
-                <p>{updatingTrip.duration}</p>
-                {/* <p>Treasures:{updatingPirate.treasureChests}</p>
-                <p>Peg Leg:{updatingPirate.hasPegLeg ? <p>Yes</p> : <p>No</p>}</p>
-                <p>Eye Patch:{updatingPirate.hasEyePatch ? <p>Yes</p> : <p>No</p>}</p>
-                <p>Hook Hand:{updatingPirate.hasHookHand ? <p>Yes</p> : <p>No</p>}</p> */}
-                <p>{updatingTrip.imageUrl && (
-                    <img src={updatingTrip.imageUrl} alt="" />
-                    )}</p>
-                {/* <p>{updatingTrip.catchPhrase}</p>  */}
-
+            <form onSubmit = {updateSubmitHandler}>
+                <label>location</label>
+                <input onChange={onChangeHandler} name="location" value={updatingTrip.location}/>
+                <label>duration</label>
+                <input onChange={onChangeHandler} name="duration" value={updatingTrip.duration}/>
+                <label>Add an Image</label>
+                <input onChange={onChangeHandler} name="imageUrl" value={updatingTrip.imageUrl && (<img src={updatingTrip.imageUrl} alt="" /> )}/>
+                <label>itinerary</label>
+                <input onChange={onChangeHandler} name="itinerary" value={updatingTrip.itinerary} />
+                <button>Submit</button>
+            </form>
         </div>
     )
 }
