@@ -2,7 +2,7 @@
 import './App.css';
 import {Router} from '@reach/router';
 import React from 'react';
-import AddTraveler from './components/AddTraveler';
+// import AddTraveler from './components/AddTraveler';
 import AddTrip from './components/AddTrip';
 import EditTraveler from './components/EditTraveler';
 import EditTrip from './components/EditTrip';
@@ -10,12 +10,18 @@ import Error from './components/Errors';
 import AllTrips from './components/AllTrips'
 import OneTrip from './components/OneTrip';
 import OneTraveler from './components/OneTraveler'
+import Login from './components/Login';
+// import Registration from './components/Registration';
+import LogReg from './views/;LogReg';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <AddTraveler path="/"/>
+        {/* <AddTraveler path="/"/> */}
+        <LogReg path = "/"/>
+        <Login path=""/>
+        {/* <Registration path=""/> */}
         <AllTrips path="/dashboard"/>
         <AddTrip path="/trip/add"/>
         <OneTrip path="/trip/:id"/>

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 const TravelerSchema = new mongoose.Schema({
     firstName: {
         type:String,
@@ -29,5 +30,27 @@ const TravelerSchema = new mongoose.Schema({
 },
 {timestamps:true}
 )
+//virtual field to store information from our req but will not be saved to the collection 
+TravelerSchema.virtual("confirmPassword")
+    .get(()=> this._confirmPassword)
+    .set((value)=> this._confirmPassword = value);
+    //middleware
+TravelerSchema.pre('validate',function(next){
+    if(this.password != this.confirmPassword){
+        this.invalidate('confirmPassword', 'Passwords must match');
+    } //else {
+        next();
+    //}
+});
+TravelerSchema.pre('save',function(next){
+    bcrypt.hash(this.password, 10)
+        .then((hashedPassword)=> {
+            this.password = hashedPassword;
+            next();
+        })
+        .catch((err)=> {
+            console.log("Error while hashing password")
+        }) 
+})
 const Traveler= mongoose.model("Traveler", TravelerSchema);
 module.exports = Traveler;
