@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 import { navigate } from "@reach/router";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Login = ()=> {
     // const[firstName, setFirstName] = useState("");
@@ -48,7 +48,7 @@ const Login = ()=> {
 
     return(
         <div>
-            <form onSubmit = {newSubmitHandler}>
+            <form  className="reg-form"onSubmit = {newSubmitHandler}>
             {errors.map((err,index)=> <p key={index}>{err}</p>)}
                 {/* <div>
                     <label>First Name</label>
@@ -62,15 +62,15 @@ const Login = ()=> {
                     <label>Upload a Picture</label>
                     <input onChange={(e) => setImageUrl(e.target.value)} name="imageUrl" value={imageUrl}/>
                 </div> */}
-                <div>
-                    <label>Screen Name</label>
-                    <input onChange={(e) => setScreenName(e.target.value)} name="screenName" value={screenName}/>
+                <div className="mb-3">
+                    <label className="form-label">Screen Name</label><br/>
+                    <input  onChange={(e) => setScreenName(e.target.value)} name="screenName" value={screenName}/>
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
+                <div class="mb-3">
+                    <label className="form-label">Password</label><br/>
+                    <input  onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
                 </div>
-                <button>Login</button>
+                <button type="button" className="btn btn-dark" >Login</button>
             </form>
             
         </div>

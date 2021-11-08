@@ -50,33 +50,33 @@ const AddTraveler = ()=> {
 
     return(
         <div>
-            <form onSubmit = {newSubmitHandler}>
+            <form  className ="reg-form" onSubmit = {newSubmitHandler}>
             {errors.map((err,index)=> <p key={index}>{err}</p>)}
-                <div>
-                    <label>First Name</label>
-                    <input onChange={(e) => setFirstName(e.target.value)} name="firstName" value={firstName}/>
+                <div className="mb-3">
+                    <label className="form-label" >First Name</label><br/>
+                    <input  onChange={(e) => setFirstName(e.target.value)} name="firstName" value={firstName}/>
                 </div>
-                <div>
-                    <label>Last Name</label>
-                    <input onChange={(e) => setLastName(e.target.value)} name="lastName" value={lastName}/>
+                <div className="mb-3">
+                    <label className="form-label">Last Name</label><br/>
+                    <input  onChange={(e) => setLastName(e.target.value)} name="lastName" value={lastName}/>
                 </div>
-                <div>
-                    <label>Upload a Picture</label>
-                    <input onChange={(e) => setImageUrl(e.target.value)} name="imageUrl" value={imageUrl}/>
+                <div className="mb-3">
+                    <label className="form-label">Upload a Picture</label><br/>
+                    <input  onChange={(e) => setImageUrl(e.target.value)} name="imageUrl" value={imageUrl}/>
                 </div>
-                <div>
-                    <label>Screen Name</label>
-                    <input onChange={(e) => setScreenName(e.target.value)} name="screenName" value={screenName}/>
+                <div className="mb-3">
+                    <label className="form-label">Screen Name</label><br/>
+                    <input  onChange={(e) => setScreenName(e.target.value)} name="screenName" value={screenName}/>
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
+                <div className="mb-3">
+                    <label className="form-label">Password</label><br/>
+                    <input  onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
                 </div>
-                <div>
-                    <label> Confirm Password</label>
+                <div className="mb-3">
+                    <label className="form-label"> Confirm Password</label> <br/>
                     <input onChange={(e) => setConfirmPassword(e.target.value)} name="confirmPassword" value={confirmPassword}/>
                 </div>
-                <button>Create An Account</button>
+                <button type="button" class="btn btn-dark">Create An Account</button>
             </form>
             
         </div>
