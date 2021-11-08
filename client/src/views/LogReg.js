@@ -5,8 +5,10 @@ import Registration from '../components/Registration';
 const LogReg = ()=> {
     return (
         <div>
-            <Login/>
+            <h1>Welcome To Travel Buddy!</h1>
             <Registration/>
+            <hr/>
+            <Login/>
         </div>
     )
 }
