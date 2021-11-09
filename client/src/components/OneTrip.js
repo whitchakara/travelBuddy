@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-//import {Link} from '@reach/router';
+import {Link} from '@reach/router';
 import axios from 'axios';
 import { navigate } from '@reach/router';
 import Header from "./Header";
@@ -58,6 +58,7 @@ const OneTrip = (props)=> {
                 <button>Submit</button>
                 <button onClick = {(e)=> navigate("/")}>Cancel</button>
             </form> */}
+            <h1>Group Leader: screenName</h1>
             <h2>{tripInfo.location}</h2>
             <p>{tripInfo.locationImg && (
                     <img src={tripInfo.locationImg} alt="" />

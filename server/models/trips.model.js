@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const TripSchema = new mongoose.Schema({
     location:{
         type:String,
-        required:[true, "Must have a screen name"],
-        minlength: [3, "your screen name must be at least 3 characters long!"]
+        required:[true, "Must have a location"],
+        minlength: [3, "your location must be at least 3 characters long!"]
     },
     travelerId: {
         type: mongoose.Types.ObjectId,

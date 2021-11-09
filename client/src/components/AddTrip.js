@@ -49,25 +49,26 @@ const AddTrip = ()=> {
 
     return(
         <div>
-            <form onSubmit = {newSubmitHandler}>
+            <form  className= "reg-form" onSubmit = {newSubmitHandler}>
             {errors.map((err,index)=> <p key={index}>{err}</p>)}
-                <div>
-                    <label>Location</label>
+            <h2>Add A Trip</h2>
+                <div className="mb-3">
+                    <label>Location</label><br/>
                     <input onChange={(e) => setLocation(e.target.value)} name="location" value={location}/>
                 </div>
-                <div>
-                    <label>Add an Image</label>
+                <div className="mb-3">
+                    <label>Add an Image</label><br/>
                     <input onChange={(e) => setLocationImg(e.target.value)} name="locationImg" value={locationImg}/>
                 </div>
-                <div>
-                    <label>Duration</label>
+                <div className="mb-3">
+                    <label>Duration</label><br/>
                     <input onChange={(e) => setDuration(e.target.value)} name="duration" value={duration}/>
                 </div>
-                <div>
-                    <label>Itinerary</label>
+                <div className="mb-3">
+                    <label>Itinerary</label><br/>
                     <input onChange={(e) => setItinerary(e.target.value)} name="itinerary" value={itinerary}/>
                 </div>
-                <button>Add a trip</button>
+                <button className="btn btn-dark">Add a trip</button>
 
             </form>
             

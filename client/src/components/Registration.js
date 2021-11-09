@@ -37,7 +37,8 @@ const AddTraveler = ()=> {
             console.log(err.response.data.errors.message);
             const errorArr = [];
             for (const key of Object.keys(errorResponse)){
-                errorArr.push(errorResponse[key].message)
+                errorArr.push(errorResponse[key].message);
+                console.log("inside for loop with "+ key);
             }
             
             setErrors(errorArr);
@@ -76,7 +77,7 @@ const AddTraveler = ()=> {
                     <label className="form-label"> Confirm Password</label> <br/>
                     <input onChange={(e) => setConfirmPassword(e.target.value)} name="confirmPassword" value={confirmPassword}/>
                 </div>
-                <button type="button" class="btn btn-dark">Create An Account</button>
+                <button  className="btn btn-dark">Create An Account</button>
             </form>
             
         </div>

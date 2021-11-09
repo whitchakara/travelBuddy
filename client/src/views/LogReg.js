@@ -1,7 +1,7 @@
 import React from "react";
 import Login from '../components/Login';
 import Registration from '../components/Registration';
-
+//import Header from '../components/Header'
 const LogReg = ()=> {
     return (
         <div>

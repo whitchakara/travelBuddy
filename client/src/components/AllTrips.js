@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
 import { navigate } from "@reach/router";
+//import Header from "./Header";
 
 const AllTrips = (props)=> {
     const[tripList, setTripList]= useState([]);
@@ -28,7 +29,7 @@ const AllTrips = (props)=> {
     }
     return(
         <div>
-            {/* <Header link={'/add'} linkText="Add Pirate"/> */}
+            {/* <Header link={} linkText=""/> */}
             <h1 >Join A trip</h1>
             <button  style={{backgroundColor:"blue", color:"white"}} onClick ={(e)=>{navigate('/trip/add')}} >Create a Trip</button>
             {/* <table style ={{margin:"auto", border:"1px solid black"}}>
@@ -39,13 +40,13 @@ const AllTrips = (props)=> {
                     </tr>
                 </thead>
                 <tbody> */}
-                <div style={{backgroundColor:"white"}}>
+                <div>
                     {
                         tripList?
                         // eslint-disable-next-line array-callback-return
                         tripList.map((trip,index)=> (
                             <ul key={index}>
-                                <li>{trip.imageUrl && (<img className="table-img" src={trip.imageUrl} alt="" />) }</li>
+                                <p>{trip.imageUrl && (<img className="table-img" src={trip.imageUrl} alt="" />) }</p>
                                 <h2>{trip.location}</h2>
                                 <button style={{backgroundColor:"blue", color:"white"}} onClick ={(e)=>{navigate(`/trip/${trip._id}`)}}>View</button>
                                 <button style={{backgroundColor:"red", color:"white"}} onClick={(e)=> deleteHandler(trip._id)}>delete</button>

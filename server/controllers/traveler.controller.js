@@ -17,12 +17,31 @@ module.exports = {
         Traveler.findOne({screenName:req.body.screenName})
         .then((userRecord)=> {
             if(userRecord === null){
-                res.status(400).json({message:"Invalid Login Attempt"})
+                res.sendStatus(401)
             } else {
+                console.log(req.body.password, userRecord.password);
                 bcrypt.compare(req.body.password, userRecord.password)
                     .then((isPasswordValid)=> {
                         if(isPasswordValid){
                             console.log("password is valid")
+                            // const userToken = jwt.sign(
+                            //     {
+                            //     user_id: userRecord._id
+                            //     },
+                            //     process.env.JWT_SECRET
+                            //   );
+                
+                            //   res
+                            //     .cookie("usertoken", userToken, process.env.JWT_SECRET, {
+                            //       httpOnly: true,
+                            //       expires: new Date(Date.now() + 900000),
+                            //     })
+                            //     .json({
+                            //       msg: "successfully Logged In!",
+                            //       userLoggedIn: {
+                            //         user_id: userRecord._id
+                            //       },
+                            //     });
                             res.cookie(
                                 "userToken",
                                 jwt.sign({
@@ -30,7 +49,7 @@ module.exports = {
                                 },
                                 process.env.JWT_SECRET),
                                 {
-                                    httpOnly:truealgorithm,
+                                    httpOnly:true,
                                     expires: new Date(Date.now()+ 900000)
                                 }
                                 )
@@ -39,12 +58,14 @@ module.exports = {
                                 userLoggedIn: userRecord.screenName
                             })
                         }else {
-                            res.status(400).json({message:"Invalid Login Attempt"})
+                            //res.status(400).json(err)
+                            res.sendStatus(401)
                         }
                     })
                     .catch((err)=> {
                         console.log("error with compare")
                         res.status(400).json(err)
+                
                     })
 
             }
@@ -57,7 +78,7 @@ module.exports = {
     logout:(req,res)=> {
         console.log("logging out");
         res.clearCookie("userToken")
-        res.json({message: "You have successfully logged out"})
+        res.json(err,{message: "You have successfully logged out"})
     },
     getOneTraveler:(req,res)=>{
         Traveler.findById({_id:req.params.id})

@@ -27,18 +27,19 @@ const Login = ()=> {
         )
         .then((res)=> {
             console.log(res.data);
-            navigate('/');
+            navigate('/dashboard');
         })
         .catch((err)=> {
-            const errorResponse = err.response.data.errors;
+            // const errorResponse = err.response.data.errors;
             console.log(err);
-            console.log(err.response.data.errors.message);
-            const errorArr = [];
-            for (const key of Object.keys(errorResponse)){
-                errorArr.push(errorResponse[key].message)
-            }
+            // console.log(err.response.data.errors.message);
+            // const errorArr = [];
+            // for (const key of Object.keys(errorResponse)){
+            //     errorArr.push(errorResponse[key].message);
+            //     console.log("inside of catch" +key);
+            // }
             
-            setErrors(errorArr);
+            // setErrors(errorArr);
         })
     }
     
@@ -48,29 +49,18 @@ const Login = ()=> {
 
     return(
         <div>
-            <form  className="reg-form"onSubmit = {newSubmitHandler}>
+            <form  className="reg-form" onSubmit = {newSubmitHandler}>
             {errors.map((err,index)=> <p key={index}>{err}</p>)}
-                {/* <div>
-                    <label>First Name</label>
-                    <input onChange={(e) => setFirstName(e.target.value)} name="firstName" value={firstName}/>
-                </div>
-                <div>
-                    <label>Last Name</label>
-                    <input onChange={(e) => setLastName(e.target.value)} name="lastName" value={lastName}/>
-                </div>
-                <div>
-                    <label>Upload a Picture</label>
-                    <input onChange={(e) => setImageUrl(e.target.value)} name="imageUrl" value={imageUrl}/>
-                </div> */}
+                
                 <div className="mb-3">
-                    <label className="form-label">Screen Name</label><br/>
+                    <label>Screen Name</label><br/>
                     <input  onChange={(e) => setScreenName(e.target.value)} name="screenName" value={screenName}/>
                 </div>
-                <div class="mb-3">
+                <div>
                     <label className="form-label">Password</label><br/>
                     <input  onChange={(e) => setPassword(e.target.value)} name="password" value={password}/>
                 </div>
-                <button type="button" className="btn btn-dark" >Login</button>
+                <button className="btn btn-dark" >Login</button>
             </form>
             
         </div>

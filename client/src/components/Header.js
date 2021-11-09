@@ -8,7 +8,6 @@ const Header = (props)=> {
 
     return(
         <div>
-            <h1>Add a Pirate</h1>
             <Link to={link}>{linkText}</Link>
             <p>{subText}</p>
         </div>

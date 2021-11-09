@@ -10,7 +10,7 @@ import Error from './components/Errors';
 import AllTrips from './components/AllTrips'
 import OneTrip from './components/OneTrip';
 import OneTraveler from './components/OneTraveler'
-// import Login from './components/Login';
+//import Login from './components/Login'
 // import Registration from './components/Registration';
 import LogReg from './views/LogReg';
 
@@ -20,6 +20,7 @@ function App() {
       <Router>
         {/* <AddTraveler path="/"/> */}
         <LogReg path = "/"/>
+        {/* <Login path = "/login"/> */}
         {/* <Registration path=""/> */}
         <AllTrips path="/dashboard"/>
         <AddTrip path="/trip/add"/>
