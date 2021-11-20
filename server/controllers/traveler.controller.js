@@ -24,24 +24,6 @@ module.exports = {
                     .then((isPasswordValid)=> {
                         if(isPasswordValid){
                             console.log("password is valid")
-                            // const userToken = jwt.sign(
-                            //     {
-                            //     user_id: userRecord._id
-                            //     },
-                            //     process.env.JWT_SECRET
-                            //   );
-                
-                            //   res
-                            //     .cookie("usertoken", userToken, process.env.JWT_SECRET, {
-                            //       httpOnly: true,
-                            //       expires: new Date(Date.now() + 900000),
-                            //     })
-                            //     .json({
-                            //       msg: "successfully Logged In!",
-                            //       userLoggedIn: {
-                            //         user_id: userRecord._id
-                            //       },
-                            //     });
                             res.cookie(
                                 "userToken",
                                 jwt.sign({

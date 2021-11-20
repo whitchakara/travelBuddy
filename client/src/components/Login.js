@@ -27,19 +27,20 @@ const Login = ()=> {
         )
         .then((res)=> {
             console.log(res.data);
+            localStorage.user = JSON.stringify(res.data.userLoggedIn);
             navigate('/dashboard');
         })
         .catch((err)=> {
-            // const errorResponse = err.response.data.errors;
+            const errorResponse = err.response.data.errors;
             console.log(err);
-            // console.log(err.response.data.errors.message);
-            // const errorArr = [];
-            // for (const key of Object.keys(errorResponse)){
-            //     errorArr.push(errorResponse[key].message);
-            //     console.log("inside of catch" +key);
-            // }
+            console.log(err.response.data.errors.message);
+            const errorArr = [];
+            for (const key of Object.keys(errorResponse)){
+                errorArr.push(errorResponse[key].message);
+                console.log("inside of catch" +key);
+                }
             
-            // setErrors(errorArr);
+            setErrors(errorArr);
         })
     }
     
