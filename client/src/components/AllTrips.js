@@ -35,7 +35,7 @@ const AllTrips = (props)=> {
     return(
         <div>
             {/* <Header link={} linkText=""/> */}
-            <h1 > Welcome {localStorage.user}Join A trip</h1>
+            <h1 > Welcome, {localStorage.user} Join A trip</h1>
             <button  style={{backgroundColor:"blue", color:"white"}} onClick ={(e)=>{navigate('/trip/add')}} >Create a Trip</button>
             {/* <table style ={{margin:"auto", border:"1px solid black"}}>
                 <thead style={{backgroundColor:"lightgray", color:"white"}}>
