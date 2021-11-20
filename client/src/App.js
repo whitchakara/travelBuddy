@@ -18,10 +18,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <AddTraveler path="/"/> */}
         <LogReg path = "/"/>
-        {/* <Login path = "/login"/> */}
-        {/* <Registration path=""/> */}
         <AllTrips path="/dashboard"/>
         <AddTrip path="/trip/add"/>
         <OneTrip path="/trip/:id"/>

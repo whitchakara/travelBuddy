@@ -4,7 +4,7 @@ import axios from 'axios';
 import { navigate } from '@reach/router';
 import Header from "./Header";
 
-const OneTrip = (props)=> {
+const OneTraveller = (props)=> {
     const {id} = props;
     const [travelerInfo, setTravelerInfo] = useState({});
     //const [errors, setErrors] = useState({});
@@ -67,4 +67,4 @@ const OneTrip = (props)=> {
         </div>
     )
 }
-export default OneTrip;
+export default OneTraveller;

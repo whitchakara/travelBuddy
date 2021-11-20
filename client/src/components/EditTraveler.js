@@ -45,7 +45,7 @@ const EditTraveler = (props)=> {
 
     return(
         <div>
-            <Header link={'/'}linkText="Home"  subText="Edit this author" />
+            <Header link={'/'}linkText="Home"  subText="Edit Your Profile" />
             <form onSubmit = {updateSubmitHandler}>
                 <label>ScreenName</label>
                 <input onChange={onChangeHandler} name="screenName" value={updatingTraveler.screenName}/>
