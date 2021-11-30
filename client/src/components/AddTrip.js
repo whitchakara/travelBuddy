@@ -24,22 +24,24 @@ const AddTrip = ()=> {
             
         };
         axios.post('http://localhost:8000/api/trips/',
-        newTrip
+        newTrip, {
+            withCredentials: true
+        }
         )
         .then((res)=> {
             console.log(res.data);
             navigate('/dashboard');
         })
         .catch((err)=> {
-            const errorResponse = err.response.data.errors;
+            //const errorResponse = err.response.data.errors;
             console.log(err);
-            console.log(err.response.data.errors.message);
-            const errorArr = [];
-            for (const key of Object.keys(errorResponse)){
-                errorArr.push(errorResponse[key].message)
-            }
+            //console.log(err.response.data.errors.message);
+            //const errorArr = [];
+            // for (const key of Object.keys(errorResponse)){
+            //     errorArr.push(errorResponse[key].message)
+            // }
             
-            setErrors(errorArr);
+            // setErrors(errorArr);
         })
     }
     
@@ -50,7 +52,7 @@ const AddTrip = ()=> {
     return(
         <div>
             <form  className= "reg-form" onSubmit = {newSubmitHandler}>
-            {errors.map((err,index)=> <p key={index}>{err}</p>)}
+            {/* {errors.map((err,index)=> <p key={index}>{err}</p>)} */}
             <h2>Add A Trip</h2>
                 <div className="mb-3">
                     <label>Location</label><br/>
@@ -68,7 +70,7 @@ const AddTrip = ()=> {
                     <label>Itinerary</label><br/>
                     <input onChange={(e) => setItinerary(e.target.value)} name="itinerary" value={itinerary}/>
                 </div>
-                <button className="btn btn-dark">Add a trip</button>
+                <button>Add a trip</button>
 
             </form>
             

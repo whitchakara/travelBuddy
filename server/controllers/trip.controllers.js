@@ -1,7 +1,12 @@
 const Trip = require('../models/trips.model');
+const jwt = require('jsonwebtoken');
 module.exports = {
     createTrip: (req,res)=> {
-        Trip.create(req.body)
+        const decodedJwt = jwt.decode(request.cookies.userToken, {complete:true})
+        const userId = decodedJwt.payload.user_id;
+        const trip = new Trip(req.body);
+        trip.travelerId=userId;
+        Trip.create(trip)
         .then((newTrip)=> {
             res.json(newTrip);
         })

@@ -1,18 +1,20 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
 import { navigate } from "@reach/router";
+import Navbar from "./Navbar";
 //import AddTraveler from "./AddTraveler";
 //import Header from "./Header";
 
 const AllTrips = (props)=> {
     const[tripList, setTripList]= useState([]);
-  //const[traveler, setTraveler]= useState("");
+    //const[traveler, setTraveler]= useState("");
     useEffect(()=>{
         axios.get('http://localhost:8000/api/trips')
         .then((res)=>{
             console.log(res);
             console.log(res.data);
             setTripList(res.data);
+            //setTraveler(res.data);
             localStorage.user = JSON.stringify(res.data.userLoggedIn.screenName)
             //setTraveler(res.data);
             //localStorage.setItem("userName", userName);
@@ -34,9 +36,13 @@ const AllTrips = (props)=> {
     }
     return(
         <div>
-            {/* <Header link={} linkText=""/> */}
-            <h1 > Welcome, {localStorage.user} Join A trip</h1>
-            <button  style={{backgroundColor:"blue", color:"white"}} onClick ={(e)=>{navigate('/trip/add')}} >Create a Trip</button>
+            <Navbar/>
+                <h1 > Welcome, {localStorage.user} Join A trip</h1>
+            {/* <span> */}
+            {/* <button onClick ={(e)=>{navigate('/trip/add')}} >Create a Trip</button>
+            <button onClick={(e)=> {window.localStorage.clear()}}>LogOut</button> */} 
+            {/* <button onClick={(e)=> Link =}>View Profile</button> */}
+            {/* </span> */}
             {/* <table style ={{margin:"auto", border:"1px solid black"}}>
                 <thead style={{backgroundColor:"lightgray", color:"white"}}>
                     <tr>

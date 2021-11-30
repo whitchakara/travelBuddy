@@ -58,7 +58,7 @@ const OneTrip = (props)=> {
                 <button>Submit</button>
                 <button onClick = {(e)=> navigate("/")}>Cancel</button>
             </form> */}
-            <h1>Group Leader: screenName</h1>
+            <h1>Group Leader: {id.screenName}</h1>
             <h2>{tripInfo.location}</h2>
             <p>{tripInfo.locationImg && (
                     <img src={tripInfo.locationImg} alt="" />

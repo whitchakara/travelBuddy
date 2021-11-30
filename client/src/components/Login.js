@@ -31,16 +31,16 @@ const Login = ()=> {
             navigate('/dashboard');
         })
         .catch((err)=> {
-            const errorResponse = err.response.data.errors;
+            const errorResponse = err;
             console.log(err);
-            console.log(err.response.data.errors.message);
+            //console.log(err.response);
             const errorArr = [];
             for (const key of Object.keys(errorResponse)){
                 errorArr.push(errorResponse[key].message);
                 console.log("inside of catch" +key);
                 }
             
-            setErrors(errorArr);
+                setErrors(errorArr);
         })
     }
     

@@ -6,7 +6,7 @@ const TripSchema = new mongoose.Schema({
         minlength: [3, "your location must be at least 3 characters long!"]
     },
     travelerId: {
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref:"Traveler"
     },
     

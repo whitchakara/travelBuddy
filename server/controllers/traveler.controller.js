@@ -27,7 +27,7 @@ module.exports = {
                             res.cookie(
                                 "userToken",
                                 jwt.sign({
-                                    _id: userRecord._id
+                                    user_id: userRecord._id
                                 },
                                 process.env.JWT_SECRET),
                                 {
